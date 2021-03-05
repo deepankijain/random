@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+#main-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+#sidebar {
+  width: 280px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 42px;
+  background-color: #f6f2e6;
+  position: fixed;
+}
+.menu-item {
+  margin: 8px 0;
+  color: #6c7a78;
+  font-size: 14px;
+}
+.menu-item i {
+  margin-right: 16px;
+}
+.filters {
+  margin-top: 36px;
+}
+.filter-item {
+  margin: 8px 0;
+  color: #466e67;
+  display: block;
+  padding-left: 24px;
+  position: relative;
+  font-size: 14px;
+  cursor: pointer;
+}
+.active-filter {
+  color: #fd7f77;
+}
+.active-filter-secondary {
+  color: #39c4a4;
+}
+/* Hide the browser's default checkbox */
+.filter-item input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 10px;
+  width: 10px;
+  border: 1px solid #aeb5ad;
+  border-radius: 2px;
+}
+.active-checkbox {
+  border: 1px solid #fd7f77;
+}
+.active-checkbox-secondary {
+  border: 1px solid #39c4a4;
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.filter-item input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.filter-item .checkmark:after {
+  left: 3px;
+  top: 0px;
+  width: 2px;
+  height: 6px;
+  border: solid #597068;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.filter-item .active-checkbox:after {
+  border-color: #fd7f77;
+}
+
+#btn-add-task {
+  background-color: #ff4e48;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  padding: 16px;
+  color: white;
+  border-top-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  margin-top: 32px;
+  box-shadow: 2px 2px 12px #999;
+}
+#task-section {
+  width: calc(100% - 280px - 25%);
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #163631;
+  margin-left: 280px;
+}
+#task-section h1 {
+  margin: 0;
+  color: white;
+  padding: 0 48px;
+  padding-top: 42px;
+  font-weight: 500;
+}
+#task-tabs-wrapper {
+  display: flex;
+  color: rgba(255, 255, 255, 0.7);
+  justify-content: space-between;
+  border-bottom: 1px solid #4f7870;
+}
+.task-tab {
+  width: 25%;
+  font-size: 16px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  cursor: pointer;
+  text-align: center;
+}
+.task-tab.active {
+  color: #e84c45;
+  border-bottom: 3px solid #e84c45;
+}
+
+.tab-badge {
+  background-color: #2c574e;
+  font-size: 14px;
+  padding: 4px 16px;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-right: 8px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.todo-lists {
+  padding: 48px;
+  padding-bottom: 36px;
+}
+
+.todo-item {
+  color: #4f7870;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-item > label {
+  display: flex;
+  align-items: center;
+  margin-left: 28px;
+  position: relative;
+  cursor: pointer;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+/* Create a custom checkbox */
+.todo-checkmark {
+  position: absolute;
+  top: 18px;
+  left: -30px;
+  height: 18px;
+  width: 18px;
+  border: 1px solid #4f7870;
+  border-radius: 4px;
+}
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .todo-checkmark {
+  background-color: #ff4e48;
+  border-color: #ff4e48;
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.todo-checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .todo-checkmark:after {
+  display: block;
+}
+/* Style the checkmark/indicator */
+.container .todo-checkmark:after {
+  left: 6px;
+  top: 3px;
+  width: 3px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.todo-message {
+  font-weight: 500;
+  font-size: 16px;
+  margin-left: 12px;
+}
+
+.todo-label {
+  width: 150px;
+  color: white;
+  padding: 12px 28px;
+  border: 0;
+  border-radius: 30px;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+.todo-label.approved {
+  background-color: #01c969;
+}
+
+.todo-label.inprogress {
+  background-color: #553536;
+  color: #df451f;
+}
+.todo-label.inreview {
+  background-color: #554835;
+  color: #dfa40a;
+}
+.todo-label.waiting {
+  background-color: #1a423a;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#heading-icon-wrapper {
+  margin: 0 48px;
+  border-bottom: 1px solid #4f7870;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#heading-icon-wrapper > h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+.upcoming-list {
+  padding-top: 28px;
+}
+#meeting-section {
+  width: 25%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 36px 24px;
+  background-color: #fff;
+}
+
+#user-info-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 28px;
+}
+#notif-count {
+  width: 48px;
+  background-color: #e6a389;
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 2px 2px 4px #999;
+  margin-left: 24px;
+}
+#meeting-section > h2 {
+  color: #153530;
+  font-weight: 500;
+  font-size: 20px;
+}
+#meetings-card-wrapper {
+  margin-top: 42px;
+}
+.meeting-card {
+  width: 290px;
+  background-color: #fff1d6;
+  box-sizing: border-box;
+  padding: 24px 32px;
+  padding-bottom: 20px;
+  margin: 12px 0;
+  border-radius: 16px;
+  position: relative;
+}
+.meeting-card:nth-child(4n + 1) {
+  background-color: #fff1d6;
+  color: #685e45;
+}
+.meeting-card:nth-child(4n + 2) {
+  background-color: #d1e5fe;
+  color: #455b69;
+}
+.meeting-card:nth-child(4n + 3) {
+  background-color: #ffd8d9;
+  color: #6b4747;
+}
+.meeting-card:nth-child(4n + 4) {
+  background-color: #d8ffe2;
+  color: #466857;
+}
+.meeting-card > span {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.8;
+}
+.meeting-card > h3 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+}
+.meeting-card > i {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+.avatars-wrapper {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+}
+.avatar-icons {
+  width: 28px;
+  margin-right: 8px;
+}
+#btn-you-joined {
+  border: none;
+  outline: none;
+  background-color: #f0f7ff;
+  color: #455b69;
+  font-size: 12px;
+  margin-left: 12px;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+#btn-you-joined i {
+  margin-right: 6px;
+  font-size: 8px;
+  opacity: 0.8;
+}
+#btn-members-count {
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+  color: #455b69;
+  font-size: 12px;
+  margin-left: 12px;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+#btn-members-count i {
+  margin-right: 6px;
+  font-size: 8px;
+  opacity: 0.8;
+}
